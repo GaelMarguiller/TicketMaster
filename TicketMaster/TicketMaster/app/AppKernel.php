@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new TicketBundle\TicketBundle(),
             new CommentBundle\CommentBundle(),
             new UserBundle\UserBundle(),
+            new FOS\UserBundle\FOSUserBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
