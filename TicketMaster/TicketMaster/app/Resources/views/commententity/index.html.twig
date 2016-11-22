@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Commententities list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Comment</th>
+                <th>Addedcomment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commentEntity in commentEntities %}
+            <tr>
+                <td><a href="{{ path('comment_show', { 'id': commentEntity.id }) }}">{{ commentEntity.id }}</a></td>
+                <td>{{ commentEntity.comment }}</td>
+                <td>{% if commentEntity.addedComment %}{{ commentEntity.addedComment|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('comment_show', { 'id': commentEntity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('comment_edit', { 'id': commentEntity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('comment_new') }}">Create a new commentEntity</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,23 @@
+comment_comment_entity:
+    resource: "@CommentBundle/Controller/CommentEntityController.php"
+    type:     annotation
+
+ticket_ticket_entity:
+    resource: "@TicketBundle/Controller/TicketEntityController.php"
+    type:     annotation
+
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+comment:
+    resource: "@CommentBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+ticket:
+    resource: "@TicketBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

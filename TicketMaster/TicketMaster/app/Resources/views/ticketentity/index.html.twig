@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Ticketentities list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Createdticket</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ticketEntity in ticketEntities %}
+            <tr>
+                <td><a href="{{ path('ticketentity_show', { 'id': ticketEntity.id }) }}">{{ ticketEntity.id }}</a></td>
+                <td>{{ ticketEntity.title }}</td>
+                <td>{{ ticketEntity.body }}</td>
+                <td>{% if ticketEntity.createdTicket %}{{ ticketEntity.createdTicket|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('ticketentity_show', { 'id': ticketEntity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ticketentity_edit', { 'id': ticketEntity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('ticketentity_new') }}">Create a new ticketEntity</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Commententity</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ commentEntity.id }}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ commentEntity.comment }}</td>
+            </tr>
+            <tr>
+                <th>Addedcomment</th>
+                <td>{% if commentEntity.addedComment %}{{ commentEntity.addedComment|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('comment_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('comment_edit', { 'id': commentEntity.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
